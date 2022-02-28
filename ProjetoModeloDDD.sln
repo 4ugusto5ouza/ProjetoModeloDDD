@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoModeloDDD.Domain", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoModeloDDD.Infra.Data", "ProjetoModeloDDD.Infra.Data\ProjetoModeloDDD.Infra.Data.csproj", "{94468081-2970-4EB6-B270-1D49E08B4DE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoModeloDDD.Application", "ProjetoModeloDDD.Application\ProjetoModeloDDD.Application.csproj", "{EC99F2EC-3DC6-4CE3-9373-12876EB6399D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{94468081-2970-4EB6-B270-1D49E08B4DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94468081-2970-4EB6-B270-1D49E08B4DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94468081-2970-4EB6-B270-1D49E08B4DE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC99F2EC-3DC6-4CE3-9373-12876EB6399D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC99F2EC-3DC6-4CE3-9373-12876EB6399D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC99F2EC-3DC6-4CE3-9373-12876EB6399D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC99F2EC-3DC6-4CE3-9373-12876EB6399D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{046AFB5D-166D-416F-A485-2AEEAFA839D7} = {8BD78C2C-423C-49A6-B7CF-4072489FBAE4}
 		{27DE699C-A1EB-4FA4-A3A5-821CBE29815A} = {1665441B-DAFC-4372-9447-628EC7CB7F90}
 		{94468081-2970-4EB6-B270-1D49E08B4DE6} = {FC4C2A14-997E-42A5-814F-DCA71565BFDE}
+		{EC99F2EC-3DC6-4CE3-9373-12876EB6399D} = {2A1F07EE-32DB-4D62-8347-8D3FF18D76E9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB078DF8-219D-40E5-8519-D71FD662A178}
