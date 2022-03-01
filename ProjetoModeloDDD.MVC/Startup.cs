@@ -5,7 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProjetoModeloDDD.Domain.Interfaces;
 using ProjetoModeloDDD.Infra.Data.Context;
+using ProjetoModeloDDD.Infra.Data.Repositories;
 using ProjetoModeloDDD.MVC.AutoMapper;
 
 namespace ProjetoModeloDDD.MVC
@@ -27,6 +29,8 @@ namespace ProjetoModeloDDD.MVC
                 (options => options.UseSqlServer
                 (Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddControllersWithViews();
+
             // Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc =>
             {
@@ -37,7 +41,7 @@ namespace ProjetoModeloDDD.MVC
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            services.AddControllersWithViews();
+            services.AddScoped<IClienteRepository, ClienteRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

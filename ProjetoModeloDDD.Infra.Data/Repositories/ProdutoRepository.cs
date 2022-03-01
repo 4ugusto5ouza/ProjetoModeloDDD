@@ -9,7 +9,7 @@ namespace ProjetoModeloDDD.Infra.Data.Repositories
     {
         public IEnumerable<Produto> GetByDescricao(string descricao)
         {
-            return Context.Produtos.Where(p => p.Descricao.Contains(descricao));
+            return _context.Produtos.Where(p => p.Descricao.Contains(descricao));
         }
     }
 }

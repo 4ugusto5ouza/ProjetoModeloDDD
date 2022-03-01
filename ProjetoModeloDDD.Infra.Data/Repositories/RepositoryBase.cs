@@ -9,33 +9,33 @@ namespace ProjetoModeloDDD.Infra.Data.Repositories
 {
     public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
     {
-        public ProjetoModeloDDDContext Context { get; set; }
+        protected ProjetoModeloDDDContext _context = new ProjetoModeloDDDContext();
         public TEntity GetById(int id)
         {
-            return Context.Set<TEntity>().Find(id);
+            return _context.Set<TEntity>().Find(id);
         }
         public IEnumerable<TEntity> GetAll()
         {
-            return Context.Set<TEntity>().ToList();
+            return _context.Set<TEntity>().ToList();
         }
         public IEnumerable<TEntity> GetAllAsNoTracking()
         {
-            return Context.Set<TEntity>().AsNoTracking().ToList();
+            return _context.Set<TEntity>().AsNoTracking().ToList();
         }
         public void Save(TEntity obj)
         {
-            Context.Set<TEntity>().Add(obj);
-            Context.SaveChanges();
+            _context.Set<TEntity>().Add(obj);
+            _context.SaveChanges();
         }
         public void Update(TEntity obj)
         {
-            Context.Entry(obj).State = EntityState.Modified;
-            Context.SaveChanges();
+            _context.Entry(obj).State = EntityState.Modified;
+            _context.SaveChanges();
         }
         public void Delete(TEntity obj)
         {
-            Context.Set<TEntity>().Remove(obj);
-            Context.SaveChanges();
+            _context.Set<TEntity>().Remove(obj);
+            _context.SaveChanges();
         }
 
         public void Dispose()

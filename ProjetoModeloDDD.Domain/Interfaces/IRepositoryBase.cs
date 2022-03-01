@@ -6,6 +6,7 @@ namespace ProjetoModeloDDD.Domain.Interfaces
     {
         TEntity GetById(int id);
         IEnumerable<TEntity> GetAll();
+        IEnumerable<TEntity> GetAllAsNoTracking();
         void Save(TEntity obj);
         void Update(TEntity obj);
         void Delete(TEntity obj);

@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoModeloDDD.Domain.Entities;
-using ProjetoModeloDDD.Infra.Data.Context;
-using ProjetoModeloDDD.Infra.Data.Repositories;
+using ProjetoModeloDDD.Domain.Interfaces;
 using ProjetoModeloDDD.MVC.ViewModels;
 using System.Collections.Generic;
 
@@ -12,17 +11,19 @@ namespace ProjetoModeloDDD.MVC.Controllers
     public class ClientesController : Controller
 
     {
+        private readonly IClienteRepository _clienteRepository;
         private readonly IMapper _mapper;
 
-        public ClientesController(IMapper mapper, ProjetoModeloDDDContext context)
+        public ClientesController(IMapper mapper, IClienteRepository clienteRepository)
         {
             _mapper = mapper;
+            _clienteRepository = clienteRepository;
         }
 
         // GET: ClientesController
         public ActionResult Index()
         {
-            IEnumerable<ClienteViewModel> clienteViewModel = _mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteRepository.GetAll());
+            IEnumerable<ClienteViewModel> clienteViewModel = _mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteRepository.GetAllAsNoTracking());
             return View(clienteViewModel);
         }
 
