@@ -1,14 +1,29 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoModeloDDD.Domain.Entities;
+using ProjetoModeloDDD.Infra.Data.Context;
+using ProjetoModeloDDD.Infra.Data.Repositories;
+using ProjetoModeloDDD.MVC.ViewModels;
+using System.Collections.Generic;
 
 namespace ProjetoModeloDDD.MVC.Controllers
 {
     public class ClientesController : Controller
+
     {
+        private readonly IMapper _mapper;
+
+        public ClientesController(IMapper mapper, ProjetoModeloDDDContext context)
+        {
+            _mapper = mapper;
+        }
+
         // GET: ClientesController
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<ClienteViewModel> clienteViewModel = _mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteRepository.GetAll());
+            return View(clienteViewModel);
         }
 
         // GET: ClientesController/Details/5
