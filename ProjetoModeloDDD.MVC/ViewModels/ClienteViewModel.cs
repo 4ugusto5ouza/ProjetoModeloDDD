@@ -25,6 +25,6 @@ namespace ProjetoModeloDDD.MVC.ViewModels
         [ScaffoldColumn(false)]
         public DateTime DataCadastro { get; set; }
         public bool Ativo { get; set; }
-        //public ICollection<ProdutoViewModel> Produtos { get; set; }
+        public ICollection<ProdutoViewModel> Produtos { get; set; }
     }
 }
