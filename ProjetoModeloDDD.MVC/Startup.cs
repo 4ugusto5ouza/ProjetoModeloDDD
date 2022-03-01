@@ -22,7 +22,7 @@ namespace ProjetoModeloDDD.MVC
         {
             services.AddDbContext<ProjetoModeloDDDContext>
                 (options => options.UseSqlServer
-                (Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("ProjetoModeloDDD")));
+                (Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllersWithViews();
         }
