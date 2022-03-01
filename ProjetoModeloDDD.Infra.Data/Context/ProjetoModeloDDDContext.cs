@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjetoModeloDDD.Domain.Entities;
+using ProjetoModeloDDD.Infra.Data.EntitiesConfig;
 
 namespace ProjetoModeloDDD.Infra.Data.Context
 {
@@ -12,5 +13,10 @@ namespace ProjetoModeloDDD.Infra.Data.Context
         }
 
         DbSet<Cliente> Cliente { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            new ClienteMap().Configure(modelBuilder.Entity<Cliente>());
+        }
     }
 }
