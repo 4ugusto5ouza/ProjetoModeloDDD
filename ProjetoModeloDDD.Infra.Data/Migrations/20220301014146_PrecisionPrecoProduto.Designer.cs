@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoModeloDDD.Infra.Data.Context;
 
 namespace ProjetoModeloDDD.Infra.Data.Migrations
 {
     [DbContext(typeof(ProjetoModeloDDDContext))]
-    partial class ProjetoModeloDDDContextModelSnapshot : ModelSnapshot
+    [Migration("20220301014146_PrecisionPrecoProduto")]
+    partial class PrecisionPrecoProduto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,22 +67,16 @@ namespace ProjetoModeloDDD.Infra.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ClienteId")
-                        .HasColumnName("ClienteId")
                         .HasColumnType("int");
 
                     b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnName("Descricao")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Disponivel")
-                        .HasColumnName("Disponivel")
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Preco")
-                        .HasColumnName("Preco")
-                        .HasColumnType("decimal(18,4)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

@@ -13,10 +13,12 @@ namespace ProjetoModeloDDD.Infra.Data.Context
         }
 
         DbSet<Cliente> Cliente { get; set; }
+        DbSet<Produto> Produto { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             new ClienteMap().Configure(modelBuilder.Entity<Cliente>());
+            new ProdutoMap().Configure(modelBuilder.Entity<Produto>());
         }
     }
 }

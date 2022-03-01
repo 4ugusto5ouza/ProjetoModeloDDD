@@ -13,27 +13,27 @@ namespace ProjetoModeloDDD.Infra.Data.EntitiesConfig
             builder.HasKey(c => c.Id);
 
             builder.Property(c => c.Nome)
-                   .HasColumnName("Nome")
                    .IsRequired()
+                   .HasColumnName("Nome")
                    .HasMaxLength(38);
 
             builder.Property(c => c.Sobrenome)
-                   .HasColumnName("Sobrenome")
                    .IsRequired()
+                   .HasColumnName("Sobrenome")
                    .HasMaxLength(48);
 
             builder.Property(c => c.Email)
-                   .HasColumnName("Email")
                    .IsRequired()
+                   .HasColumnName("Email")
                    .HasMaxLength(28);
 
             builder.Property(c => c.DataCadastro)
-                   .HasColumnName("DataCadastro")
-                   .IsRequired();
+                   .IsRequired()
+                   .HasColumnName("DataCadastro");
 
             builder.Property(c => c.Ativo)
-                   .HasColumnName("Ativo")
-                   .IsRequired();
+                   .IsRequired()
+                   .HasColumnName("Ativo");
         }
     }
 }
