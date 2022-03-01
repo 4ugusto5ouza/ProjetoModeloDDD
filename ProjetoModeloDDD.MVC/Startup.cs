@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -5,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProjetoModeloDDD.Infra.Data.Context;
+using ProjetoModeloDDD.MVC.AutoMapper;
 
 namespace ProjetoModeloDDD.MVC
 {
@@ -20,9 +22,20 @@ namespace ProjetoModeloDDD.MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Config. DataContext
             services.AddDbContext<ProjetoModeloDDDContext>
                 (options => options.UseSqlServer
                 (Configuration.GetConnectionString("DefaultConnection")));
+
+            // Auto Mapper Configurations
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new DomainToViewModelMappingProfile());
+                mc.AddProfile(new ViewlModelToDomainMappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddControllersWithViews();
         }
