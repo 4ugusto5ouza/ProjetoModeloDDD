@@ -12,8 +12,8 @@ namespace ProjetoModeloDDD.Infra.Data.Context
             Database.EnsureCreated();
         }
 
-        DbSet<Cliente> Cliente { get; set; }
-        DbSet<Produto> Produto { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
