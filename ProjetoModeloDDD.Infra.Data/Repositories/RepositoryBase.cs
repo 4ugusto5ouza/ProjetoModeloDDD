@@ -9,7 +9,7 @@ namespace ProjetoModeloDDD.Infra.Data.Repositories
 {
     public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
     {
-        protected ProjetoModeloDDDContext _context = new ProjetoModeloDDDContext();
+        protected ProjetoModeloDDDContext _context { get; }// = new ProjetoModeloDDDContext();
         public TEntity GetById(int id)
         {
             return _context.Set<TEntity>().Find(id);
