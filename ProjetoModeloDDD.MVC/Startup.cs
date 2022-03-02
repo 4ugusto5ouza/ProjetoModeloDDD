@@ -24,10 +24,11 @@ namespace ProjetoModeloDDD.MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Config. DataContext
-            services.AddDbContext<ProjetoModeloDDDContext>
-                (options => options.UseSqlServer
-                (Configuration.GetConnectionString("DefaultConnection")));
+            //Config. DbContext
+            //SOMENTE NECESSÁRIO CASO HAJA UM CONSTRUTOR NO DBCONTEXT
+            //services.AddDbContext<ProjetoModeloDDDContext>
+            //    (options => options.UseSqlServer
+            //    (Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllersWithViews();
 

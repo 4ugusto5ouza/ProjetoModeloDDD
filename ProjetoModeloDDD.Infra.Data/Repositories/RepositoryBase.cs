@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using ProjetoModeloDDD.Domain.Interfaces;
 using ProjetoModeloDDD.Infra.Data.Context;
 using System;
@@ -9,7 +10,7 @@ namespace ProjetoModeloDDD.Infra.Data.Repositories
 {
     public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
     {
-        protected ProjetoModeloDDDContext _context { get; }// = new ProjetoModeloDDDContext();
+        protected ProjetoModeloDDDContext _context  = new ProjetoModeloDDDContext();//{ get; }//
         public TEntity GetById(int id)
         {
             return _context.Set<TEntity>().Find(id);
@@ -40,7 +41,7 @@ namespace ProjetoModeloDDD.Infra.Data.Repositories
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
