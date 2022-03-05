@@ -1,12 +1,10 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ProjetoModeloDDD.Domain.Interfaces;
-using ProjetoModeloDDD.Infra.Data.Context;
+using ProjetoModeloDDD.Domain.Interfaces.Repositories;
 using ProjetoModeloDDD.Infra.Data.Repositories;
 using ProjetoModeloDDD.MVC.AutoMapper;
 

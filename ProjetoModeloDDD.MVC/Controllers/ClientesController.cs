@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoModeloDDD.Domain.Entities;
-using ProjetoModeloDDD.Domain.Interfaces;
+using ProjetoModeloDDD.Domain.Interfaces.Repositories;
 using ProjetoModeloDDD.MVC.ViewModels;
 using System.Collections.Generic;
 

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using ProjetoModeloDDD.Domain.Interfaces;
+using ProjetoModeloDDD.Domain.Interfaces.Repositories;
 using ProjetoModeloDDD.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
