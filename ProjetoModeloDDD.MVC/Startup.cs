@@ -41,6 +41,8 @@ namespace ProjetoModeloDDD.MVC
             services.AddSingleton(mapper);
 
             services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IRepositoryBase<object>, RepositoryBase<object>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
