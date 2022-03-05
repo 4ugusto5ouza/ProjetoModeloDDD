@@ -16,11 +16,11 @@ namespace ProjetoModeloDDD.Infra.Data.Repositories
         }
         public IEnumerable<TEntity> GetAll()
         {
-            return _context.Set<TEntity>().ToList();
+            return _context.Set<TEntity>();
         }
         public IEnumerable<TEntity> GetAllAsNoTracking()
         {
-            return _context.Set<TEntity>().AsNoTracking().ToList();
+            return _context.Set<TEntity>().AsNoTracking();
         }
         public void Save(TEntity obj)
         {

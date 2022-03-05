@@ -18,7 +18,7 @@ namespace ProjetoModeloDDD.Domain.Entities
         public bool Ativo { get; set; }
         public ICollection<Produto> Produtos { get; set; }
 
-        public bool ClienteEspeial(Cliente cliente) =>
+        public bool ClienteEspecial(Cliente cliente) =>
             cliente.Ativo && DateTime.Now.Year - cliente.DataCadastro.Year >= 5;
 
     }
