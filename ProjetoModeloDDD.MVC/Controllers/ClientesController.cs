@@ -23,8 +23,7 @@ namespace ProjetoModeloDDD.MVC.Controllers
         // GET: ClientesController
         public ActionResult Index()
         {
-            IEnumerable<ClienteViewModel> clienteViewModel = _mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteRepository.GetAllAsNoTracking());
-            return View(clienteViewModel);
+            return View(_mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteRepository.GetAllAsNoTracking()));
         }
 
         // GET: ClientesController/Details/5
@@ -42,16 +41,14 @@ namespace ProjetoModeloDDD.MVC.Controllers
         // POST: ClientesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(ClienteViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                _clienteRepository.Save(_mapper.Map<ClienteViewModel, Cliente>(model));
+                return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
 
         // GET: ClientesController/Edit/5
