@@ -12,8 +12,4 @@
     <ProjectReference Include="..\ProjetoModeloDDD.Domain\ProjetoModeloDDD.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="AppServices\" />
-  </ItemGroup>
-
 </Project>

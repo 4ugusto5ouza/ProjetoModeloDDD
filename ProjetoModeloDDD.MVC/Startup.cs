@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProjetoModeloDDD.Application.AppServices;
+using ProjetoModeloDDD.Application.Interfaces;
 using ProjetoModeloDDD.Domain.Interfaces.Repositories;
+using ProjetoModeloDDD.Domain.Interfaces.Services;
+using ProjetoModeloDDD.Domain.Services;
 using ProjetoModeloDDD.Infra.Data.Repositories;
 using ProjetoModeloDDD.MVC.AutoMapper;
 
@@ -43,6 +47,8 @@ namespace ProjetoModeloDDD.MVC
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<IRepositoryBase<object>, RepositoryBase<object>>();
+            services.AddScoped<IServiceBase<object>, ServiceBase<object>>();
+            services.AddScoped<IAppServiceBase<object>, AppServiceBase<object>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

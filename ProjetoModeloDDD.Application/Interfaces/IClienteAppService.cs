@@ -5,6 +5,6 @@ namespace ProjetoModeloDDD.Application.Interfaces
 {
     public interface IClienteAppService : IAppServiceBase<Cliente>
     {
-        IEnumerable<Cliente> GetClientesEspeciais(IEnumerable<Cliente> clientes);
+        IEnumerable<Cliente> GetClientesEspeciais();
     }
 }
