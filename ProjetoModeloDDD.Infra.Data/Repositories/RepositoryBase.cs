@@ -40,7 +40,6 @@ namespace ProjetoModeloDDD.Infra.Data.Repositories
 
         public void Dispose()
         {
-            //throw new NotImplementedException();
         }
     }
 }

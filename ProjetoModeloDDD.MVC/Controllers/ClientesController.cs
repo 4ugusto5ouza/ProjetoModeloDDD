@@ -27,10 +27,16 @@ namespace ProjetoModeloDDD.MVC.Controllers
             return View(_mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_app.GetAllAsNoTracking()));
         }
 
+        // GET: ClientesController
+        public ActionResult Especiais()
+        {
+            return View(_mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_app.GetClientesEspeciais()));
+        }
+
         // GET: ClientesController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(_mapper.Map<Cliente, ClienteViewModel>(_app.GetById(id)));
         }
 
         // GET: ClientesController/Create
@@ -55,43 +61,35 @@ namespace ProjetoModeloDDD.MVC.Controllers
         // GET: ClientesController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(_mapper.Map<Cliente, ClienteViewModel>(_app.GetById(id)));
         }
 
         // POST: ClientesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(ClienteViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                _app.Update(_mapper.Map<ClienteViewModel, Cliente>(model));
+                return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
 
         // GET: ClientesController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(_mapper.Map<Cliente, ClienteViewModel>(_app.GetById(id)));
         }
 
         // POST: ClientesController/Delete/5
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _app.Delete(_app.GetById(id));
+            return RedirectToAction("Index");
         }
     }
 }
