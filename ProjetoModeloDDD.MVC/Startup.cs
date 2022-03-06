@@ -46,9 +46,10 @@ namespace ProjetoModeloDDD.MVC
 
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
-            services.AddScoped<IRepositoryBase<object>, RepositoryBase<object>>();
-            services.AddScoped<IServiceBase<object>, ServiceBase<object>>();
-            services.AddScoped<IAppServiceBase<object>, AppServiceBase<object>>();
+            services.AddScoped<IClienteService, ClienteService>();
+            services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<IClienteAppService, ClienteAppService>();
+            services.AddScoped<IProdutoAppService, ProdutoAppService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
